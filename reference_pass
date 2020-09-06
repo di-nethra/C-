@@ -1,1 +1,26 @@
+#include<iostream>
+using namespace std;
+void display(int x, int y, int& sum, int& avg);
 
+int main() {
+
+	int num1, num2, total, avg;
+
+
+	cout << "enter the first number:";
+	cin >> num1;
+	cout << "enter the first number:";
+	cin >> num2;
+	display(num1, num2, total, avg);
+
+	cout << "sum is:" << total << " and average is:" << avg;
+
+
+	return 0;
+
+}
+
+void display(int x, int y, int &sum, int &avg) {
+	sum = x + y;
+	avg = sum / 2;
+}
