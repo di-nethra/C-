@@ -1,0 +1,68 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+class Student {
+private:
+	int stid;
+	float mark1, mark2, mark3;
+	char name[10];
+public:
+	Student();
+	~Student();
+	void setMarks(int pmark1,int pmark2, int pmark3);
+	void setDetails(int pstid,char pname[]);
+	void display();
+};
+Student::Student() {
+	mark1 = 0;
+	mark2 = 0;
+	mark3 = 0;
+}
+
+Student::~Student()
+{
+	cout << "object have been removed from memory" << endl;
+}
+
+void Student::setMarks(int pmark1, int pmark2, int pmark3)
+{
+	mark1 = pmark1;
+	mark2 = pmark2;
+	mark3 = pmark3;
+}
+
+void Student::setDetails(int pstid, char pname[])
+{
+	stid = pstid;
+	strcpy_s(name,pname);
+	
+}
+
+void Student::display()
+{
+	cout << "student ID:" << stid<<endl;
+	cout << "student Name:" << name<<endl;
+    cout<<"average:"<<(mark1+mark2+mark3)/3<<endl;
+}
+
+int main() {
+
+	Student st1;
+	Student *st2;
+	st2 = new Student;
+
+	st1.setMarks(65, 75, 85);
+	char name[10] = "Anjana";
+	char name1[10] = "Dinethra";
+	st1.setDetails(20233808,name);
+	st2->setMarks(45, 55, 65);
+	st2->setDetails(20385924, name1);
+
+	st1.display();
+	st2->display();
+
+	delete st2;
+
+	return 0;
+}
