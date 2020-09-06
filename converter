@@ -1,0 +1,27 @@
+#include<iostream>
+
+using namespace std;
+int main()
+{
+	int cents,doller,quater,nikel,dime,penny,balance;
+
+	  /*1 doller = 100cents
+		1 quater= 25cents
+		1 nikel= 10 cents
+		1 dime= 5 cents 
+		1 penny= 1 cents*/
+
+	cout << "enter the number of cents:";
+	cin >> cents;
+	doller = cents / 100;
+	balance = cents - (doller*100);
+	quater = balance / 25;
+	balance = balance - (quater*25);
+	nikel = balance / 10;
+	balance = balance -( nikel*10);
+	dime = balance / 5;
+	balance = balance -( dime*5);
+	penny = balance / 1;
+	cout << doller << " " << quater << " " << nikel << " " << dime << " " << penny;
+	return 0;
+}
