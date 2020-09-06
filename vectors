@@ -1,0 +1,144 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+void sayhi(string name);
+int main()
+{
+	string name;
+	bool istrue = false;
+	int counter = 1;
+	int num = 2;
+
+	while (!istrue && counter <= 3)
+	{
+		cout << "enter your password(hint-type my name):";
+		cin >> name;
+		if (name == "anjana")
+		{
+			istrue = true;
+		}
+		else
+		{
+			cout << "\t" << num << " attempts left" << endl;
+			counter++;
+			num--;
+		}
+	}
+	if (istrue)
+	{
+		sayhi(name);
+
+		vector<float>numlist = {};
+		char menue_ch;
+
+		float numadd;
+		int numcount = 0;
+		int smallest, highest;
+		int temp = 0;
+
+		int total = 0;
+
+		bool istrue = true;
+		cout << "" << endl;
+		cout << "\tP-Print numbers" << endl;
+		cout << "\tA-Add numbers" << endl;
+		cout << "\tM-Display mean of the numbers" << endl;
+		cout << "\tS-Display the smallest number" << endl;
+		cout << "\tL -Display the largest number" << endl;
+		cout << "\tQ-Quit" << endl;
+
+		while (istrue)
+		{
+
+			cout << "\nenter the command:";
+			cin >> menue_ch;
+			if (menue_ch == 'A' || menue_ch == 'a')
+			{
+				cout << "enter the number to add:";
+				cin >> numadd;
+				numlist.push_back(numadd);
+				cout << numadd << " added to the list";
+				numcount++;
+			}
+			else if (menue_ch == 'P' || menue_ch == 'p')
+			{
+				if (numlist.size() == 0)
+				{
+					cout << "[]-list is emplty";
+				}
+				else {
+					cout << "[ ";
+					for (int i = 0; i < numcount; i++)
+						cout << numlist[i] << " ";
+					cout << " ]";
+				}
+			}
+			else if (menue_ch == 'm' || menue_ch == 'M')
+			{
+
+				for (int i = 0; i < numlist.size(); i++)
+				{
+					total = total + numlist[i];
+				}
+				cout << "mean of the list: " << total / numlist.size();
+			}
+
+			else if (menue_ch == 'Q' || menue_ch == 'q')
+			{
+				cout << "good bye" << endl;
+				istrue = false;
+			}
+			else if (menue_ch == 'S' || menue_ch == 's')
+			{
+				if (numlist.size() == 0)
+				{
+					cout << "list is empty please add data" << endl;
+				}
+				smallest = numlist[0];
+
+				for (int i = 1; i < numlist.size(); i++)
+				{
+					temp = numlist[i];
+					if (temp < smallest)
+					{
+						smallest = temp;
+					}
+				}
+				cout << "smallest number is: " << smallest << endl;
+			}
+			else if (menue_ch == 'L' || menue_ch == 'l')
+			{
+				if (numlist.size() == 0)
+				{
+					cout << "list is empty please add data" << endl;
+				}
+				highest = numlist[0];
+				for (int i = 1; i < numlist.size(); i++)
+				{
+					temp = numlist[i];
+					if (temp > highest)
+					{
+						highest = temp;
+					}
+				}
+				cout << "highest number is: " << highest << endl;
+			}
+			else
+			{
+				cout << "wrong command try again" << endl;
+			}
+		}
+	}
+	else
+	{
+		cout << "access dinied";
+	}
+	return 0;
+}
+
+void sayhi(string name)
+{
+	cout << "\thello " << name << endl;
+	cout << "\tgood morning" << endl;
+	return;
+}
