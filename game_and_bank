@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+class Player {
+public:
+	string name, gameid;
+	int age;
+
+	void sayhi(string name) {
+		cout << "Hello " << name<<endl;
+	}
+};
+class Account {
+public:
+	string name;
+	double balance;
+
+	void diposit(double bal){
+		balance += bal;
+		cout << "in diposit" << endl;
+		cout << balance<< endl;
+	}
+
+	void withdraw(double bal) {
+		balance -= bal;
+		cout << "in withdraw" << endl;
+		cout << balance << endl;
+	}
+
+};
+int main()
+{
+	Player anjana;
+	anjana.name = "anjana";
+	anjana.gameid = "anjipie";
+	anjana.age = 21;
+
+	cout << anjana.gameid << endl;
+	anjana.sayhi("anjana");
+
+	Player *enemy=new Player;
+	(*enemy).name = "enemy";
+	(*enemy).gameid = "enemypie";
+	(*enemy).age=25;
+	cout << (*enemy).name<<endl;
+	(*enemy).sayhi("fucker");
+
+	Account hapana;
+	hapana.name = "hapana";
+	hapana.balance = 50000;
+
+	hapana.withdraw(10000);
+	hapana.diposit(30000);
+
+	return 0;
+}
