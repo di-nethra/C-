@@ -1,20 +1,4 @@
- fac = 1;
-    for (int r=no; r >= 1; r--) {
-        fac = fac * r;
-    }
---------------------------------------------
-int fact(int n) 
-{ 
-    int res = 1; 
-    for (int i = 2; i <= n; i++) 
-        res = res * i; 
-    return res; 
-} 
------------------------------------------------------
 #include <iostream>
-
-long Factorial(int no);
-long nCr(int n, int r);
 
 int main() {
     int n, r;
@@ -26,12 +10,24 @@ int main() {
     std::cout << nCr(n, r);
     std::cout << std::endl;
 }
+
+int fact(int n) 
+{ 
+    int res = 1; 
+    for (int i = 2; i <= n; i++) 
+        res *= i; 
+    return res; 
+} 
+
+long Factorial(int no);
+long nCr(int n, int r);
+
 long Factorial(int no)
 {
     int n = 1;
     for (int i = 2; i <= no; i++)
     {
-        n = n * i;
+        n *= i;
     }
     return n;
 
@@ -42,4 +38,3 @@ long nCr(int n, int r)
         return Factorial(n) / (Factorial(r) * Factorial(n - r));
     }
 }
----------------------------------------------------------------
